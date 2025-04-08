@@ -5,6 +5,6 @@
     <title>Chat</title>
 </head>
 <body>
-    <h1>BotMan Web Widget</h1>
+    <h1>Loading chat...</h1>
 </body>
 </html>
