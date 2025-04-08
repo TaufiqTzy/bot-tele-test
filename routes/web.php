@@ -36,6 +36,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/botman/chat', function (){
-    return view('botman.chat');
-});
+Route::view('/botman/chat', 'botman.chat');
+
