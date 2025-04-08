@@ -25,8 +25,8 @@ Route::match(['get', 'post'], '/botman', function () {
 
     $botman = BotManFactory::create($config, new LaravelCache());
 
-    $botman->hears('hi|hello', function (BotMan $bot) {
-        $bot->reply('Hello! How can I help you?');
+    $botman->hears('hi|hello', function ($bot) {
+        $bot->startConversation(new AskNameConversation());
     });
 
     $botman->listen();
@@ -38,8 +38,4 @@ Route::get('/', function () {
 
 Route::get('/botman/chat', function (){
     return view('botman.chat');
-});
-
-$botman->hears('hi|hello', function ($bot) {
-    $bot->startConversation(new AskNameConversation());
 });
