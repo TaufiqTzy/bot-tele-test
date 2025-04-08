@@ -5,7 +5,7 @@ use BotMan\BotMan\BotMan;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Drivers\DriverManager;
-
+use App\Conversations\AskNameConversation;
 use BotMan\BotMan\Cache\LaravelCache;
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +38,8 @@ Route::get('/', function () {
 
 Route::get('/botman/chat', function (){
     return view('botman.chat');
+});
+
+$botman->hears('hi|hello', function ($bot) {
+    $bot->startConversation(new AskNameConversation());
 });
